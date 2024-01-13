@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('sonarqube scan') {
             steps {
-                withSonarQubeEnv('sonarqube') {
+                withSonarQubeEnv('sonarQube') {
                     sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Naih2021_week16-code'
                 }
             }
