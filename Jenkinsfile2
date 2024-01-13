@@ -3,19 +3,18 @@ pipeline {
     tools {
         maven 'M2_HOME'
     }
-    stages{
-        stage('sonarqube scan'){
-            steps{
-                withSonarQubeEnv('sonarqube'){
-                  sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Naih2021_week16-code'  
-                }    
+    stages {
+        stage('sonarqube scan') {
+            steps {
+                withSonarQubeEnv('sonarqube') {
+                    sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Naih2021_week16-code'
+                }
             }
         }
-        stage('all maven commands'){
-            steps{
+        stage('all maven commands') {
+            steps {
                 sh 'mvn clean test compile install package'
             }
         }
-        
     }
 }
