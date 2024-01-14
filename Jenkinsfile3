@@ -6,7 +6,9 @@ pipeline{
         stage('check current directory'){
             steps{
                 sh 'pwd'
-                sh 'whoami'     
+                sh 'whoami'
+                sh 'python3-version' 
+                sh 'npm --version'    
             }
         }
     }
